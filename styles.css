@@ -1,0 +1,128 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Form Styles */
+form {
+    margin: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #007bb5;
+}
+
+/* Profile Page */
+#profile-name, #profile-major {
+    font-weight: bold;
+}
+
+#edit-profile {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+#edit-profile:hover {
+    background-color: #007bb5;
+}
+
+/* Major Color Themes */
+.cs { background-color: #2196F3; }
+.eng { background-color: #FF5722; }
+.bio { background-color: #4CAF50; }
+.bus { background-color: #FFC107; }
+.psy { background-color: #9C27B0; }
+
+/* Forum Posts */
+.forum-post {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.forum-post h3 {
+    color: #333;
+}
+/* Style for the logo */
+.logo {
+    width: 200px;  /* Adjust the width as needed */
+    height: auto;  /* Maintain the aspect ratio */
+    display: block; /* Ensures it behaves like a block-level element */
+    margin: 0 auto; /* Centers the logo horizontally */
+    padding: 10px 0; /* Adds some space around the logo */
+    max-height: 80px; /* Optional: limits the max height of the logo */
+}
+
