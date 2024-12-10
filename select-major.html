@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Select Your Major</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
     <header>
-        <h1>Select Your Major</h1>
-        <p>Choose the major you’re interested in to get started.</p>
+      <h1>Select Your Major</h1>
+      <p>Choose the major you’re interested in to get started.</p>
     </header>
     <main>
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-        <script>
-            
-        </script>
-
-        <form id="major-form">
-            <label for="major">Select Major:</label>
-            <select id="major" name="major">
-                <option value="Computer Science" class="cs">Computer Science</option>
-                <option value="Engineering" class="eng">Engineering</option>
-                <option value="Biology" class="bio">Biology</option>
-                <option value="Business" class="bus">Business</option>
-                <option value="Psychology" class="psy">Psychology</option>
-            </select>
-            <button type="submit">Submit</button>
-        </form>
-        <button type="submit">Back to Homepage</button>
-        <p id="major-selection-result"></p>
+      <form id="major-form">
+        <label for="major">Select Major:</label>
+        <select id="major" name="major">
+          <option value="Computer Science" class="cs">Computer Science</option>
+          <option value="Engineering" class="eng">Engineering</option>
+          <option value="Biology" class="bio">Biology</option>
+          <option value="Business" class="bus">Business</option>
+          <option value="Psychology" class="psy">Psychology</option>
+        </select>
+        <button id="submit-button" type="submit">Submit</button>
+      </form>
+      <button type="submit">Back to Homepage</button>
+      <p id="major-selection-result"></p>
     </main>
     <footer>
-        <p>StudyBuddy © 2024</p>
+      <p>StudyBuddy © 2024</p>
     </footer>
-    <script src="script.js"></script>
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const submitButton = document.getElementById("submit-button");
+
+        function fire(ratio, opt) {
+          confetti(
+            Object.assign({}, opt, {
+              origin: { y: 0.6 },
+              particleCount: Math.floor(200 * ratio),
+            })
+          );
+        }
+
+        submitButton.addEventListener("click", (e) => {
+          e.preventDefault(); // Prevents form submission
+          fire(0.25, { spread: 26, startVelocity: 55 });
+        });
+      });
+    </script>
+  </body>
 </html>
