@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Select Your Major</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
     <header>
       <h1>Select Your Major</h1>
       <p>Choose the major you’re interested in to get started.</p>
@@ -25,29 +24,32 @@
         </select>
         <button id="submit-button" type="submit">Submit</button>
       </form>
-      <button type="submit">Back to Homepage</button>
+    <button type="button" onclick="window.location.href='index.html'">Back to Homepage</button>
       <p id="major-selection-result"></p>
     </main>
     <footer>
       <p>StudyBuddy © 2024</p>
     </footer>
+
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("major-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
         const submitButton = document.getElementById("submit-button");
+        const rect = submitButton.getBoundingClientRect();
 
-        function fire(ratio, opt) {
-          confetti(
-            Object.assign({}, opt, {
-              origin: { y: 0.6 },
-              particleCount: Math.floor(200 * ratio),
-            })
-          );
-        }
-
-        submitButton.addEventListener("click", (e) => {
-          e.preventDefault(); // Prevents form submission
-          fire(0.25, { spread: 26, startVelocity: 55 });
+        // Trigger confetti effect from the button's position
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: {
+            x: (rect.left + rect.width / 2) / window.innerWidth,
+            y: (rect.top + rect.height / 2) / window.innerHeight
+          }
         });
+
+        const selectedMajor = document.getElementById("major").value;
+        document.getElementById("major-selection-result").textContent = `You selected: ${selectedMajor}`;
       });
     </script>
   </body>
